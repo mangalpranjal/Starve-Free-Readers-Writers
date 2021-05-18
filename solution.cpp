@@ -12,7 +12,7 @@ void reader()
   wait(orderMutex);           // wait for arrival
   wait(readersMutex);         // only allow single access to the code
   
-  reader++;                 // New Reader has entered
+  readers++;                 // New Reader has entered
 
   if (readers == 1)        
     wait(accessMutex);        // Request for exclusive access to resource is made for the reader.
@@ -21,7 +21,7 @@ void reader()
   signal(readersMutex);         // The reader has successfully entered.
 
   // Critical Section, Reading is performed
-  ReadResource();          // Reader can read resources
+  ReadResource();          // Readers can read resource
 
 
   wait(readersMutex);         // Mutual exclusion to avoid race between readers
@@ -38,7 +38,7 @@ void writer()
   signal(orderMutex);           // Since we have been served, we can release order of arrival semaphore.
   
   //Writer enters into critical section and is doing some action.
-  WriteResource();         // Writer have the choice to modify resources.
+  WriteResource();         // Writer has the choice to modify resource.
 
   signal(accessMutex);          // Release exclusive access to the resource
 }
