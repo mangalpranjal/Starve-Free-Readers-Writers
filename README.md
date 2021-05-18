@@ -1,3 +1,7 @@
+# CSN 232: Operating Systems
+Pranjal Mangal
+18115070
+
 # The Problem
 The readers-writers problem is a classical one in computer science and is divided into three case. Our interest in this repository is towards Starve Free Readers Writers Problem (Third Case). We have a resource (e.g. database) that can be accessed by readers or writers. Readers do no modify the resouce whereas writers can read as well as modify the resource. When a writer is modifying the resource, no-one else (reader or writer) can access it at the same time. Another writer trying to access the same resource can corrupt it or another reader trying to read it could only read a partially modified value. 
 
@@ -18,3 +22,11 @@ The role of writer is simple since we are considering only one writer modifies t
 2. Resources are asked for and allocated.
 3. Writer is granted entry to critical section. It can now make changes in the resouce.
 4. Writer exits critical section and resources are released.
+
+## Main Function
+1. Initializes number of readers and writers.
+2. Initializes readers and writers thread with their respective function.
+3. Creates required number of threads.
+4. Initializes Semaphores.
+5. All threads are joined back to the parent thread.
+6. Destroys semaphores at end of execution.
